@@ -1,0 +1,5 @@
+a) SELECT gatunek, COUNT(*) AS 'ilość filmów' FROM `filmy` GROUP BY gatunek;
+b) SELECT COUNT(*) AS 'filmy z roku 1994' FROM `filmy` WHERE Rok_prod = "1994";
+c) SELECT COUNT(*) AS 'filmy wyreżyserowane przez Eastwood\'a' FROM `filmy`,`rezyserzy` WHERE filmy.IDRezysera=rezyserzy.IDRezysera AND Nazwisko="Eastwood" AND Imie="Clint";
+d) SELECT Tytul FROM `filmy`,`recenzje` WHERE filmy.IDFilm=recenzje.IDFilm AND (ocena=4 OR ocena=6); 
+e) SELECT Imie, Nazwisko FROM `rezyserzy`,`filmy` WHERE rezyserzy.IDRezysera=filmy.IDRezysera GROUP BY filmy.IDRezysera ORDER BY COUNT(*) DESC LIMIT 1;
