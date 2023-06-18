@@ -1,0 +1,42 @@
+#cont{
+    width: 1205px;
+}
+#gora{
+    width: 1200px;
+}
+#gora, #stopka{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+h1, h5{
+    padding: 5px;
+}
+#lewo{
+    width: 300px;
+    border-right: 1px solid black;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+#lewo > a{
+    margin: 5px;
+}
+#prawo, iframe{
+    width: 800px;
+}
+iframe{
+    height: 400px;
+}
+#lewo, #prawo{
+    min-height: 500px;
+    float: left;
+}
+#stopka{
+    clear: both;
+}
+a{
+    text-align: left;
+}
