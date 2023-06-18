@@ -1,0 +1,4 @@
+Zapytanie 1. SELECT * FROM `kursy`;
+Zapytanie 2. SELECT data, skup, sprzedaz FROM `kursy` WHERE id_waluta=1;
+Zapytanie 3. SELECT nazwa, skup, sprzedaz FROM `kursy`, `waluty` WHERE kursy.id_waluta=waluty.id_waluta AND data='2018-08-19';
+Zapytanie 4. SELECT data FROM `kursy` WHERE id_waluta=3 AND skup=(SELECT MAX(skup) FROM `kursy` WHERE id_waluta=3);

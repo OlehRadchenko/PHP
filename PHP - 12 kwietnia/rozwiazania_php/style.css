@@ -1,0 +1,47 @@
+#naglowek{
+    height: 270px;
+    background-color: #0000ff;
+    border: 10px;
+    text-align: center;
+}
+img{
+    border: 2px solid white;
+    height: 255px;
+    margin-top: 5px;
+}
+a{
+    color: gray;
+    border: 1px solid gray;
+    padding: 10px;
+    width: 120px;
+    display: block;
+    margin-top: 5px;
+    margin-left: 0px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+#navbar{
+    width: 150px;
+    height: 450px;
+    float: left;
+    border: 5px, 5px, 5px, 0px;
+}
+#main{
+    height: 450px;
+    font-family: Arial;
+    color: black;
+    padding: 10px;
+    background-color: #00b4ea;
+}
+#stopka{
+    background-color: #0000ff;
+    font-family: Arial;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    clear: both;
+}
+table, tr, td, th{
+    text-align: left;
+    border: 1px solid black;
+}
