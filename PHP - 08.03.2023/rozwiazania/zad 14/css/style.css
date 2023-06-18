@@ -1,0 +1,39 @@
+#header, #zad, #prawy, #stopka{
+    padding: 5px;
+    border: 1px solid black;
+}
+#header, #prawy, #stopka{
+    background-color: black;
+    color: white;
+}
+#lewy, #zad, #prawy{
+    min-height: 300px;
+    float: left;
+}
+#zad, #stopka, #header{
+    width: 900px;
+}
+#stopka, #header{
+    height: 100px;
+    display: flex;
+    margin-left: 211px;
+    align-items: center;
+    justify-content: center;
+}
+#lewy, #prawy{
+    width: 200px;
+}
+#stopka{
+    clear: both
+}
+#lewy{
+    padding: 5px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+#main{
+    width: 1400px;
+    min-height: 500px;
+}
