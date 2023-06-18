@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+        Podaj nazwę bazy danych: <input type="text" name="baza"><br>
+        Podaj nazwę tabeli: <input type="text" name="tab"><br>
+        <input type="submit" value="Dalej">
+        <style>
+            *{
+                overflow: hidden;
+            }
+        </style>
+    </form>
+    <?php
+    if(isset($_POST['baza'])){
+        if(!empty($_POST['baza']) && $_POST['baza']!=0 && !empty($_POST['tab']) && $_POST['tab']!=0){
+            $baza = $_POST['baza'];
+            $tabela = $_POST['tab'];
+            
+            $db = @mysqli_connect('localhost', 'root', '');
+            if($db){
+                if(mysqli_select_db($db, $baza)){
+                    if(mysqli_query($db, "DESCRIBE $tabela")){
+                        $zapytanie = "SELECT * FROM $tabela";
+                        $wynik = mysqli_query($db, $zapytanie);
+                        echo 'Aktualnie tabela wygląda następująco:<br>lp - nazwa<br>';
+                        while($row = $wynik -> fetch_assoc()){
+                            echo $row['lp'].' - '.$row['nazwa'].'<br>';
+                        }
+                        echo '<br><form action="dodajj.php" method="POST">
+                        Wprowadź login który chcesz dodać: <input type="text" name="log">
+                        <input type="hidden" value="'.$baza.'" name="baza"/>
+                        <input type="hidden" value="'.$tabela.'" name="tab"/>
+                        <input type="submit" name="akcja" value="Dodaj">
+                        </form>
+                        ';
+                        /*if(isset($_POST['log']) && $_POST['log']!=0){
+                            echo 'POST OD LOG TO '.$_POST['log'];
+                            $login = $_POST['log'];
+                            $zapytanie = "SELECT * FROM $tabela WHERE nazwa='$login'";
+                            $wynik = mysqli_query($db, $zapytanie);
+                            if($wynik){
+                                $zapytanie = "INSERT INTO $tabela VALUES('NULL', '$login')";
+                                mysqli_query($db, $zapytanie);
+                                $zapytanie = "SELECT * FROM $tabela";
+                                $wynik = mysqli_query($db, $zapytanie);
+                                echo 'Po zmianie tabela wygląda następująco:<br>lp - nazwa<br>';
+                                while($row = $wynik -> fetch_assoc()){
+                                    echo $row['lp'].' - '.$row['nazwa'].'<br>';
+                                }
+                            }else{
+                                echo 'istnieje już taki login ;c';
+                            }
+                        }else{
+                            echo 'Niewprowadzono wartości ;c';
+                        }*/
+                    }else{
+                        echo 'Nie istnieje taka tabela ;c';
+                    }
+                }else{
+                    echo 'Nie istnieje taka baza danych ;c';
+                }
+            }
+            mysqli_close($db);
+        }else{
+            echo 'Niewprowadzono wartości';
+        }
+    }
+    ?>
+</body>
+</html>
