@@ -1,0 +1,5 @@
+a) SELECT gatunek, COUNT(*) FROM filmy GROUP BY gatunek;
+b) SELECT tytul, nazwisko, rok_prod FROM filmy, rezyserzy WHERE filmy.IDRezysera=rezyserzy.IDRezysera;
+c) SELECT gatunek, COUNT(*) FROM filmy WHERE gatunek="sensacja" GROUP BY gatunek;
+d) SELECT tytul FROM filmy, recenzje WHERE filmy.IDFilm=recenzje.IDFilm AND recenzje.Ocena IN (4,6);
+e) SELECT imie, nazwisko, COUNT(*) AS 'ilość wyreżyserowanych filmów' FROM rezyserzy, filmy WHERE rezyserzy.IDRezysera=filmy.IDRezysera GROUP BY filmy.IDRezysera ORDER BY COUNT(*) DESC LIMIT 1;
